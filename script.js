@@ -53,3 +53,16 @@ function slideRight() {
 
 // Sayfa yüklendiğinde terimleri yükle
 document.addEventListener('DOMContentLoaded', loadTerms);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.querySelector('#menu-icon');
+    const navbar = document.querySelector('.navbar');
+    
+    if (menuIcon && navbar) {
+        menuIcon.addEventListener('click', function() {
+            navbar.classList.toggle('active');
+            menuIcon.classList.toggle('bx-x');
+        });
+    }
+});
