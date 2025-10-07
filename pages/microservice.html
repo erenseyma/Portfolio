@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikroservisler | Şeyma Yazılım</title>
+    <link rel="shortcut icon" href="bx bxl-instagram" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .lesson-section {
+            padding: 12rem 12% 6rem;
+            min-height: 100vh;
+        }
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .lesson-icon {
+            font-size: 6rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+        .lesson-title {
+            font-size: 4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-subtitle {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            opacity: 0.8;
+        }
+        .content-area {
+            background: var(--second-bg-color);
+            padding: 3rem;
+            border-radius: 2rem;
+            border: 2px solid var(--main-color);
+            margin-bottom: 3rem;
+        }
+        .content-area h2 {
+            color: var(--main-color);
+            margin-top: 2rem;
+            font-size: 2.4rem;
+        }
+        .content-area p, .content-area ul {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-top: 1rem;
+        }
+        .content-area ul {
+            padding-left: 2rem;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--main-color);
+            color: var(--bg-color);
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            transition: 0.3s ease;
+        }
+        .back-button:hover {
+            background: var(--bg-color);
+            color: var(--main-color);
+            box-shadow: 0 0 20px var(--main-color);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">Şeyma <span>Yazılım</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="../index.html">Ana Sayfa</a>
+            <a href="../index.html#aboutMe">Hakkımda</a>
+            <a href="../index.html#education">Eğitim</a>
+            <a href="../index.html#terms">Terimler</a>
+            <a href="../index.html#projects">Projelerim</a>
+            <a href="../index.html#contact">İletişim</a>
+        </nav>
+    </header>
+
+    <section class="lesson-section">
+        <div class="lesson-container">
+            <div class="lesson-header">
+                <i class='bx bx-network-chart lesson-icon'></i>
+                <h1 class="lesson-title">Mikroservisler (Microservices)</h1>
+                <p class="lesson-subtitle">Modern yazılım mimarilerinde bağımsız servis yapısı</p>
+            </div>
+
+            <div class="content-area">
+                <h2>🌐 Mikroservis Nedir?</h2>
+                <p>
+                    <strong>Mikroservis mimarisi</strong>, bir uygulamanın tek ve büyük bir yapı (monolitik mimari) yerine,
+                    küçük, bağımsız ve birbiriyle iletişim kurabilen servislerden oluştuğu modern bir yazılım yaklaşımıdır.
+                    Her mikroservis kendi veritabanına, iş mantığına ve API’sine sahiptir.
+                </p>
+
+                <h2>⚙️ Mikroservislerin Avantajları</h2>
+                <ul>
+                    <li><strong>Bağımsız Geliştirme:</strong> Her servis ayrı bir ekip tarafından bağımsız geliştirilebilir.</li>
+                    <li><strong>Kolay Ölçeklenebilirlik:</strong> Sadece yoğun kullanılan servisler ölçeklendirilebilir, tüm sistem değil.</li>
+                    <li><strong>Hata Yönetimi:</strong> Bir serviste hata olsa bile diğer servisler çalışmaya devam eder.</li>
+                    <li><strong>Teknoloji Özgürlüğü:</strong> Her servis farklı bir programlama dili veya veritabanı kullanabilir.</li>
+                    <li><strong>Hızlı Dağıtım (Deployment):</strong> Servisler birbirinden bağımsız dağıtılabilir.</li>
+                </ul>
+
+                <h2>🧩 Mikroservislerin Özellikleri</h2>
+                <ul>
+                    <li>Her servis kendi <strong>veri tabanına</strong> sahiptir (örneğin, kullanıcı servisi ayrı, ürün servisi ayrı).</li>
+                    <li>Servisler genellikle <strong>REST API</strong> veya <strong>gRPC</strong> üzerinden iletişim kurar.</li>
+                    <li>Servisler arasındaki haberleşme <strong>message broker</strong> (örnek: RabbitMQ, Kafka) ile yönetilebilir.</li>
+                    <li>Her servisin kendi <strong>deployment pipeline’ı</strong> bulunur.</li>
+                </ul>
+
+                <h2>🏗️ Mikroservislerle Kullanılan Popüler Teknolojiler</h2>
+                <ul>
+                    <li><strong>Docker:</strong> Servisleri izole container’larda çalıştırmak için kullanılır.</li>
+                    <li><strong>Kubernetes:</strong> Mikroservisleri ölçeklendirmek ve yönetmek için kullanılır.</li>
+                    <li><strong>API Gateway:</strong> Servisler arası istekleri yönlendiren bir ara katmandır (örnek: Ocelot, Kong).</li>
+                    <li><strong>Service Discovery:</strong> Servislerin birbirini bulabilmesi için kullanılır (örnek: Eureka, Consul).</li>
+                    <li><strong>Logging & Monitoring:</strong> Sistem sağlığını izlemek için (örnek: ELK Stack, Prometheus, Grafana).</li>
+                </ul>
+
+                <h2>🚀 Gerçek Hayatta Mikroservis Kullanımı</h2>
+                <p>
+                    Örneğin bir e-ticaret sisteminde; kullanıcı yönetimi, sipariş işlemleri, stok takibi ve ödeme sistemi
+                    birbirinden bağımsız mikroservisler olarak tasarlanabilir. Böylece bir serviste yapılacak güncelleme
+                    diğerlerini etkilemez, sistem daha güvenilir ve esnek hale gelir.
+                </p>
+
+                <h2>📖 Sonuç</h2>
+                <p>
+                    Mikroservis mimarisi, günümüz yazılım dünyasında ölçeklenebilir ve sürdürülebilir sistemler oluşturmak için 
+                    en çok tercih edilen yaklaşımlardan biridir. Ancak doğru planlama, servisler arası iletişim yönetimi ve izleme 
+                    mekanizmaları kurulmadığında karmaşık bir yapıya dönüşebilir.
+                </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="../index.html#terms" class="back-button">
+                    <i class='bx bx-arrow-back'></i>
+                    Terimlere Geri Dön
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>

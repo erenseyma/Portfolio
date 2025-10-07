@@ -1,160 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kişisel Portföy Web Sitesi | Şeymanur Eren</title>
+    <title>Şeymanur Eren | Yazılım Geliştirici</title>
 
-
-    <link rel="shortcut icon" href="img/icon1.png" type="image/x-icon">
-
-
+    <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-
-
 </head>
+
 <body>
     <!--Header Start-->
-<header class="header">
-    <a href="#home" class="logo"> Şeyma <span>Yazılım</span> </a>
+    <header class="header">
+        <a href="#home" class="logo"> Şeyma <span>Yazılım</span> </a>
 
-    <i class='bx  bx-menu' id="menu-icon"  ></i> 
+        <i class='bx bx-menu' id="menu-icon"></i> 
 
-    <nav class="navbar">
-    <a href="#home" class="active">Ana Sayfa</a>
-    <a href="#aboutMe" class="active">Hakkımda</a>
-    <a href="#trms" class="active">Terimler</a>
-    <a href="#projects" class="active">Projelerim</a>
-    <a href="#contact">İletişim</a>
-</nav>
-</header>
- <!--Header End-->
+        <nav class="navbar">
+            <a href="#home" class="active">Ana Sayfa</a>
+            <a href="#education">Eğitim</a>
+            <a href="#terms">Terimler</a>
+            <a href="#projects">Projelerim</a>
+            <a href="#contact">İletişim</a>
+        </nav>
+    </header>
+    <!--Header End-->
 
+    <!--Home Start-->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Merhaba, ben <span>Şeymanur Eren</span></h1>
+            <h3 class="text-animation">Ben bir <span></span></h3>
+            <p>
+                Web teknolojilerine tutkulu, kullanıcı deneyimine önem veren ve sürekli öğrenmeye açık bir geliştiriciyim.
+                Front-end geliştirme, veritabanı tasarımı ve modern yazılım mimarileri (özellikle mikroservis yapısı) üzerine çalışıyorum.
+            </p>
 
-<!--Home Start-->
-<section class="home" id="home">
-    <div class="home-content">
-        <h1>Merhaba Ben Şeyma</h1>
-        <h3 class="text-animation">Ben <span></span></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Error fuga velit accusamus sequi itaque nam. Doloremque 
-            suscipit, est atque quis tenetur quasi dignissimos, numquam 
-            explicabo velit quidem alias iste eaque?</p>
-        
+            <div class="social-icons">
+                <a href="https://www.instagram.com/seymarenn/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/seymaeren03" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/erenseyma" target="_blank"><i class='bx bxl-github'></i></a>
+            </div>
 
-        <div class="social-icons">
-            <a href="a" target="_blank" ><i class='bx bxl-instagram'  ></i>  </a>
-            <a href="https://www.linkedin.com/in/seymaeren03" target="_blank" ><i class='bx bxl-linkedin'  ></i>  </a>
-            <a href="https://github.com/erenseyma" target="_blank" ><i class='bx bxl-github'  ></i>  </a>
-            <a href="a" target="_blank" ><i class='bx bxl-instagram'  ></i>  </a>
+            <div class="btn-group">
+                <a href="cv.pdf" class="btn">CV’mi Görüntüle</a>
+                <a href="cv.pdf" download class="btn">CV İndir</a>
+            </div>
         </div>
 
-        <div class="btn-group">
-            <a href="a" class="btn">CV</a>
-            <a href="a" class="btn">Bana Ulaş</a>
+        <div class="home-img">
+            <img src="img/icon.png" alt="Şeymanur Eren">
         </div>
-        
-    </div>
-    <div class="home-img">
-            <img src="img/icon.png" alt=""/>
-        </div>
-</section>
-<!--Home End-->
+    </section>
+    <!--Home End-->
 
-<!--Education Start-->
+    <!--Education Start-->
 <section class="education" id="education">
-    <h2 class="heading">Eğitim</h2>
+  <h2 class="heading">Eğitim</h2>
 
-    <div class="timeline-items">
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2020</div>
-            <div class="timeline-content">
-                <h3>Üniversite</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                     Cum laudantium provident similique. Optio quos voluptas nostrum 
-                     sint ipsam deserunt, eveniet animi voluptatum
-                     libero illum nobis nam consectetur repudiandae quas ratione?</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2023</div>
-            <div class="timeline-content">
-                <h3>Staj</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                     Cum laudantium provident similique. Optio quos voluptas nostrum 
-                     sint ipsam deserunt, eveniet animi voluptatum
-                     libero illum nobis nam consectetur repudiandae quas ratione?</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2025</div>
-            <div class="timeline-content">
-                <h3>Üniversite</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                     Cum laudantium provident similique. Optio quos voluptas nostrum 
-                     sint ipsam deserunt, eveniet animi voluptatum
-                     libero illum nobis nam consectetur repudiandae quas ratione?</p>
-            </div>
-        </div>
+  <div class="timeline-items">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2020 - 2024</div>
+      <div class="timeline-content">
+        <h3>Uludağ Üniversitesi</h3>
+        <p>Uludağ Üniversitesi'nde lisans eğitimime 2020 yılında başladım ve 2024 yılında başarıyla mezun oldum. 
+          Üniversite sürecinde yazılım geliştirme, web teknolojileri ve veri tabanı konularına ilgi duydum. 
+          Bu dönemde birçok kişisel proje geliştirerek kendimi teknik anlamda geliştirdim.</p>
+      </div>
     </div>
 
-    
-        
-    
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2023</div>
+      <div class="timeline-content">
+        <h3>İletişim Yazılım — Staj</h3>
+        <p>2023 yılında İletişim Yazılım firmasında stajımı tamamladım. 
+          Burada kurumsal yazılım geliştirme süreçlerini yakından gözlemledim ve 
+          gerçek projelerde aktif olarak görev alarak deneyim kazandım.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2025 - Devam Ediyor</div>
+      <div class="timeline-content">
+        <h3>İstanbul Üniversitesi Açık ve Uzaktan Eğitim Fakültesi</h3>
+        <p>Şu anda İstanbul Üniversitesi Açık ve Uzaktan Eğitim Fakültesi İnsan Kaynakları Yönetimi bölümünde eğitimime devam ediyorum.
+          Bu bölüm, iletişim ve organizasyon becerilerimi güçlendirerek yazılım dünyasında ekip yönetimi ve insan odaklı yaklaşımlarda bana katkı sağlıyor.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 <!--Education End-->
 
-<!-- Terms Section Start -->
- <section class="terms" id="terms">
-    <h2 class="heading">Terimler</h2>
 
-    <div class="terms-container">
-      <div class="terms-slider" id="termsSlider">
-        <!-- Terimler JavaScript ile buraya eklenecek -->
-      </div>
+    <!-- Terms Section Start -->
+    <section class="terms" id="terms">
+        <h2 class="heading">Terimler</h2>
 
-      <div class="slider-buttons">
-        <button class="slider-btn" onclick="slideLeft()">←</button>
-        <button class="slider-btn" onclick="slideRight()">→</button>
-      </div>
-    </div>
-  </section>
-<!-- Terms Section End -->
-<!--Footer Start-->
-<footer class="footer">
-    <div class="social">
-        <a href="a" target="_blank" ><i class='bx bxl-instagram'  ></i>  </a>
-            <a href="https://www.linkedin.com/in/seymaeren03" target="_blank" ><i class='bx bxl-linkedin'  ></i>  </a>
-            <a href="https://github.com/erenseyma" target="_blank" ><i class='bx bxl-github'  ></i>  </a>
-            <a href="a" target="_blank" ><i class='bx bxl-instagram'  ></i>  </a>
-    </div>
-    <ul class="list">
-        <li>
-            <a href="#home">Ana Sayfa</a>
-        </li>
-        <li>
-            <a href="#education">Eğitim</a>
-        </li>
-        <li>
-            <a href="#terms">Terimler</a>
-        </li>
-        <li>
-            <a href="#Project">Projelerim</a>
-        </li>
-    </ul>
+        <div class="terms-container">
+            <div class="terms-slider" id="termsSlider">
+                <!-- Terimler script.js ile yüklenecek -->
+            </div>
 
-    <p class="copyright">&copy; Şeyma Yazılım | Tüm Hakları Sakladır</p>
-</footer>
-<!--Footer Start-->
+            <div class="slider-buttons">
+                <button class="slider-btn" onclick="slideLeft()">←</button>
+                <button class="slider-btn" onclick="slideRight()">→</button>
+            </div>
+        </div>
+    </section>
+    <!-- Terms Section End -->
 
+    <!-- Projects Section Start -->
+    <section class="projects" id="projects">
+        <h2 class="heading">Projelerim</h2>
+        <div class="project-list">
+            <div class="project-item">
+                <i class='bx bx-bar-chart'></i>
+                <h3>MyDashboardApp</h3>
+                <p>Kullanıcı girişi sonrası dinamik grafikler oluşturulan, SQL sorguları üzerinden dashboard üretimi yapılan bir web uygulaması.</p>
+                <a href="https://github.com/erenseyma" target="_blank" class="btn">Projeye Git</a>
+            </div>
 
+            <div class="project-item">
+                <i class='bx bx-code-block'></i>
+                <h3>Portföy Web Sitesi</h3>
+                <p>Kendim için tasarladığım modern ve responsive bir kişisel web sitesi (bu sayfa).</p>
+                <a href="#home" class="btn">İncele</a>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section End -->
 
+    <!-- Contact Section Start -->
+    <section class="contact" id="contact">
+        <h2 class="heading">İletişim</h2>
+        <p style="text-align:center; font-size:1.8rem;">
+            Benimle iletişime geçmek isterseniz <a href="mailto:eren.seyma03@gmail.com" style="color:var(--main-color); text-decoration:underline;">eren.seyma03@gmail.com</a> adresinden ulaşabilirsiniz.
+        </p>
+    </section>
+    <!-- Contact Section End -->
+
+    <!--Footer Start-->
+    <footer class="footer">
+        <div class="social">
+            <a href="https://www.instagram.com/seymarenn/" target="_blank"><i class='bx bxl-instagram'></i></a>
+            <a href="https://www.linkedin.com/in/seymaeren03" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/erenseyma" target="_blank"><i class='bx bxl-github'></i></a>
+        </div>
+
+        <ul class="list">
+            <li><a href="#home">Ana Sayfa</a></li>
+            <li><a href="#education">Eğitim</a></li>
+            <li><a href="#terms">Terimler</a></li>
+            <li><a href="#projects">Projelerim</a></li>
+        </ul>
+
+        <p class="copyright">&copy; 2025 Şeyma Yazılım | Tüm Hakları Saklıdır</p>
+    </footer>
+    <!--Footer End-->
 
     <script src="script.js"></script>
 </body>
