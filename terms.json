@@ -1,0 +1,31 @@
+[
+  {
+    "icon": "bx bxl-react",
+    "title": "React",
+    "description": "Kullanıcı arayüzü kütüphanesi",
+    "link": "react.html"
+  },
+  {
+    "icon": "bx bxl-docker",
+    "title": "Docker",
+    "description": "Kapsayıcı teknolojisi",
+    "link": "./pages/docker.html"
+  },
+  {
+    "icon": "bx bx-lock",
+    "title": "Authentication",
+    "description": "Kimlik doğrulama sürecidir.",
+    "link": "authentication.html"
+  },
+  {
+    "icon": "bx bx-network-chart",
+    "title": "Microservice",
+    "description": "Bağımsız servislerden oluşan yazılım mimarisi.",
+    "link": "microservice.html"
+  },{
+    "icon": "bx bx-network-chart",
+    "title": "Microservice",
+    "description": "Bağımsız servislerden oluşan yazılım mimarisi.",
+    "link": "microservice.html"
+  }
+]
