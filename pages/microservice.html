@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mikroservisler | Şeyma Yazılım</title>
-    <link rel="shortcut icon" href="bx bxl-instagram" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
@@ -34,44 +34,124 @@
             font-size: 1.8rem;
             color: var(--main-color);
             opacity: 0.8;
+            margin-bottom: 2rem;
         }
         .content-area {
             background: var(--second-bg-color);
-            padding: 3rem;
+            padding: 4rem;
             border-radius: 2rem;
             border: 2px solid var(--main-color);
             margin-bottom: 3rem;
+            box-shadow: 0 0 20px var(--main-color);
         }
         .content-area h2 {
             color: var(--main-color);
-            margin-top: 2rem;
-            font-size: 2.4rem;
+            margin: 3rem 0 1.5rem 0;
+            font-size: 2.8rem;
+            border-bottom: 2px solid var(--main-color);
+            padding-bottom: 0.5rem;
+        }
+        .content-area h2:first-child {
+            margin-top: 0;
         }
         .content-area p, .content-area ul {
             font-size: 1.6rem;
             line-height: 1.8;
             color: var(--text-color);
-            margin-top: 1rem;
+            margin-bottom: 1.5rem;
         }
         .content-area ul {
-            padding-left: 2rem;
+            padding-left: 3rem;
         }
+        .content-area li {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        .content-area strong {
+            color: var(--main-color);
+        }
+        
+        /* GÖRSEL STİLLERİ */
+        .content-area img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 1.5rem;
+            border: 2px solid var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+            display: block;
+            margin: 3rem auto;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .content-area img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 35px var(--main-color);
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .image-caption {
+            font-size: 1.4rem;
+            color: var(--main-color);
+            margin-top: 1rem;
+            font-style: italic;
+            text-align: center;
+        }
+        
         .back-button {
             display: inline-flex;
             align-items: center;
             gap: 1rem;
             background: var(--main-color);
             color: var(--bg-color);
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             border-radius: 2rem;
             text-decoration: none;
             font-size: 1.6rem;
+            font-weight: 600;
             transition: 0.3s ease;
+            border: 2px solid var(--main-color);
         }
         .back-button:hover {
-            background: var(--bg-color);
+            background: transparent;
             color: var(--main-color);
-            box-shadow: 0 0 20px var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .lesson-section {
+                padding: 10rem 5% 4rem;
+            }
+            .lesson-title {
+                font-size: 3rem;
+            }
+            .content-area {
+                padding: 2.5rem;
+            }
+            .content-area h2 {
+                font-size: 2.2rem;
+            }
+            .content-area img {
+                margin: 2rem auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .lesson-title {
+                font-size: 2.5rem;
+            }
+            .content-area {
+                padding: 2rem;
+            }
+            .content-area h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -98,51 +178,77 @@
             </div>
 
             <div class="content-area">
-                <h2>🌐 Mikroservis Nedir?</h2>
+                <p><strong>Mikroservis mimarisi</strong> yazılım dünyasında çok konuşulan ama yanlış anlaşılan konulardan birisidir. Bu yazıda önce mantığını, sonra nasıl çalıştığını, en sonunda da örneklerle açıklayacağım.</p>
+
+                <h2>1. 🎯 Mikroservis Nedir?</h2>
                 <p>
-                    <strong>Mikroservis mimarisi</strong>, bir uygulamanın tek ve büyük bir yapı (monolitik mimari) yerine,
-                    küçük, bağımsız ve birbiriyle iletişim kurabilen servislerden oluştuğu modern bir yazılım yaklaşımıdır.
-                    Her mikroservis kendi veritabanına, iş mantığına ve API’sine sahiptir.
+                    Tek bir büyük uygulamayı, birçok küçük parçaya bölmek anlamına gelir. Her parça (servis) kendi görevinden sorumludur, kendi veri tabanına sahip olabilir, bağımsız geliştirilebilir, güncellenebilir, dağıtılabilir.
+                </p>
+                <p>
+                    Yani <strong>monolitik sistemde</strong> her şey tek bir proje içindeyken, <strong>mikroserviste</strong>: "ödeme", "sipariş", "ürünler" gibi kısımlar ayrı mikroservislerdir.
                 </p>
 
-                <h2>⚙️ Mikroservislerin Avantajları</h2>
-                <ul>
-                    <li><strong>Bağımsız Geliştirme:</strong> Her servis ayrı bir ekip tarafından bağımsız geliştirilebilir.</li>
-                    <li><strong>Kolay Ölçeklenebilirlik:</strong> Sadece yoğun kullanılan servisler ölçeklendirilebilir, tüm sistem değil.</li>
-                    <li><strong>Hata Yönetimi:</strong> Bir serviste hata olsa bile diğer servisler çalışmaya devam eder.</li>
-                    <li><strong>Teknoloji Özgürlüğü:</strong> Her servis farklı bir programlama dili veya veritabanı kullanabilir.</li>
-                    <li><strong>Hızlı Dağıtım (Deployment):</strong> Servisler birbirinden bağımsız dağıtılabilir.</li>
-                </ul>
+                <h2>2. ⚖️ Monolitik Mimari vs Mikroservis Mimarisi</h2>
+                <div class="image-container">
+                    <img src="../img/movsmi.png" alt="Monolitik vs Mikroservis Mimarisi Karşılaştırması">
+                    <p class="image-caption">Monolitik ve Mikroservis Mimarilerinin Karşılaştırması</p>
+                </div>
 
-                <h2>🧩 Mikroservislerin Özellikleri</h2>
-                <ul>
-                    <li>Her servis kendi <strong>veri tabanına</strong> sahiptir (örneğin, kullanıcı servisi ayrı, ürün servisi ayrı).</li>
-                    <li>Servisler genellikle <strong>REST API</strong> veya <strong>gRPC</strong> üzerinden iletişim kurar.</li>
-                    <li>Servisler arasındaki haberleşme <strong>message broker</strong> (örnek: RabbitMQ, Kafka) ile yönetilebilir.</li>
-                    <li>Her servisin kendi <strong>deployment pipeline’ı</strong> bulunur.</li>
-                </ul>
+                <h2>3. 📡 Mikroservisler Nasıl İletişim Kurar?</h2>
+                <p>Mikroservisler birbirinden bağımsız olduğu için haberleşmeleri gerekir. Bu genelde 2 yolla olur:</p>
 
-                <h2>🏗️ Mikroservislerle Kullanılan Popüler Teknolojiler</h2>
-                <ul>
-                    <li><strong>Docker:</strong> Servisleri izole container’larda çalıştırmak için kullanılır.</li>
-                    <li><strong>Kubernetes:</strong> Mikroservisleri ölçeklendirmek ve yönetmek için kullanılır.</li>
-                    <li><strong>API Gateway:</strong> Servisler arası istekleri yönlendiren bir ara katmandır (örnek: Ocelot, Kong).</li>
-                    <li><strong>Service Discovery:</strong> Servislerin birbirini bulabilmesi için kullanılır (örnek: Eureka, Consul).</li>
-                    <li><strong>Logging & Monitoring:</strong> Sistem sağlığını izlemek için (örnek: ELK Stack, Prometheus, Grafana).</li>
-                </ul>
-
-                <h2>🚀 Gerçek Hayatta Mikroservis Kullanımı</h2>
+                <h3>🔗 1. HTTP REST API (En Yaygın)</h3>
                 <p>
-                    Örneğin bir e-ticaret sisteminde; kullanıcı yönetimi, sipariş işlemleri, stok takibi ve ödeme sistemi
-                    birbirinden bağımsız mikroservisler olarak tasarlanabilir. Böylece bir serviste yapılacak güncelleme
-                    diğerlerini etkilemez, sistem daha güvenilir ve esnek hale gelir.
+                    Örneğin: <code>GET /user/123</code> veya <code>POST /orders</code><br>
+                    Her servis bir API sunar.
                 </p>
 
-                <h2>📖 Sonuç</h2>
+                <h3>📨 2. Mesajlaşma Sistemleri (Asenkron)</h3>
                 <p>
-                    Mikroservis mimarisi, günümüz yazılım dünyasında ölçeklenebilir ve sürdürülebilir sistemler oluşturmak için 
-                    en çok tercih edilen yaklaşımlardan biridir. Ancak doğru planlama, servisler arası iletişim yönetimi ve izleme 
-                    mekanizmaları kurulmadığında karmaşık bir yapıya dönüşebilir.
+                    Bazen servislerin "hemen cevap vermesi" gerekmez.<br>
+                    Örneğin bir kullanıcı sipariş verdiğinde, sipariş oluşturulur ama faturayı sonra gönderebilirsin.
+                </p>
+                <p>
+                    Bu durumda servisler "mesaj kuyruğu" dediğimiz bir sistemle haberleşir. Bu iletişim asenkron'dur, yani herkes kendi hızında çalışır. Kimse diğerini beklemez. RabbitMQ, Kafka gibi sistemlerle servisler birbirine mesaj yollar.
+                </p>
+
+                <div class="image-container">
+                    <img src="../img/connectMicroService.png" alt="Mikroservis İletişim Yöntemleri">
+                    <p class="image-caption">Mikroservisler Arası İletişim Yöntemleri</p>
+                </div>
+
+                <h2>4. 🏪 Gerçek Hayat Örneği: E-Ticaret Sistemi</h2>
+                <p>Bir e-ticaret sistemini mikroservis mimarisiyle nasıl yapılandırabiliriz:</p>
+                <ul>
+                    <li><strong>Kullanıcı Servisi:</strong> Kayıt, giriş, profil yönetimi</li>
+                    <li><strong>Ürün Servisi:</strong> Ürün listeleme, arama, stok takibi</li>
+                    <li><strong>Sipariş Servisi:</strong> Sepet, sipariş oluşturma, sipariş geçmişi</li>
+                    <li><strong>Ödeme Servisi:</strong> Kredi kartı işlemleri, ödeme onayı</li>
+                    <li><strong>Kargo Servisi:</strong> Teslimat takibi, kargo firması entegrasyonu</li>
+                    <li><strong>Bildirim Servisi:</strong> E-posta, SMS, push bildirimleri</li>
+                </ul>
+
+                <h2>5. ✅ Avantajları</h2>
+                <ul>
+                    <li><strong>Bağımsız Geliştirme:</strong> Her servis ayrı bir ekip tarafından bağımsız geliştirilebilir</li>
+                    <li><strong>Kolay Ölçeklenebilirlik:</strong> Sadece yoğun kullanılan servisler ölçeklendirilebilir</li>
+                    <li><strong>Hata Yönetimi:</strong> Bir serviste hata olsa bile diğer servisler çalışmaya devam eder</li>
+                    <li><strong>Teknoloji Özgürlüğü:</strong> Her servis farklı programlama dili veya veritabanı kullanabilir</li>
+                    <li><strong>Hızlı Dağıtım:</strong> Servisler birbirinden bağımsız dağıtılabilir</li>
+                </ul>
+
+                <h2>6. ⚠️ Dezavantajları</h2>
+                <ul>
+                    <li><strong>Karmaşıklık:</strong> Çok sayıda servisi yönetmek zordur</li>
+                    <li><strong>Ağ Gecikmesi:</strong> Servisler arası iletişim ağ üzerinden olduğu için gecikme olabilir</li>
+                    <li><strong>Dağıtık Sistem Zorlukları:</strong> Veri tutarlılığı, transaction yönetimi zorlaşır</li>
+                    <li><strong>Monitoring Zorluğu:</strong> Tüm servisleri izlemek ve log'lamak daha karmaşık</li>
+                    <li><strong>Yüksek Kaynak İhtiyacı:</strong> Her servis için ayrı container/sunucu gerekir</li>
+                </ul>
+
+                <h2>7. 📖 Sonuç</h2>
+                <p>
+                    Mikroservis mimarisi, büyük ve karmaşık uygulamalar için harika bir çözüm sunar ancak doğru planlama ve araçlar olmadan yönetilmesi zor olabilir. Küçük projelerde monolitik mimari daha uygunken, büyük ölçekli ve sürekli gelişen sistemlerde mikroservisler tercih edilmelidir.
                 </p>
             </div>
 
