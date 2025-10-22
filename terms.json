@@ -1,15 +1,15 @@
 [
   {
-    "icon": "fas fa-project-diagram",
+    "icon": "bx bx-network-chart",
     "title": "Microservice",
     "description": "Bağımsız servislerden oluşan yazılım mimarisi.",
     "link": "./pages/microservice.html"
   },
   {
-    "icon": "bx bxl-docker",
-    "title": "Docker",
-    "description": "Kapsayıcı teknolojisi",
-    "link": "./page/docker.html"
+    "icon": "bx bx-code-alt",
+    "title": "Generic Yapı",
+    "description": "Aynı kodu farklı veri tipleriyle çalışacak şekilde yazmamızı sağlayan,<br> tip güvenliğini koruyan bir programlama tekniğidir.",
+    "link": "./pages/generic.html"
   },
   {
     "icon": "bx bxl-docker",

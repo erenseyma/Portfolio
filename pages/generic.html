@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Generic Yapılar | Şeyma Yazılım</title>
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .lesson-section {
+            padding: 12rem 12% 6rem;
+            min-height: 100vh;
+        }
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .lesson-icon {
+            font-size: 6rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+        .lesson-title {
+            font-size: 4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-subtitle {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .content-area {
+            background: var(--second-bg-color);
+            padding: 4rem;
+            border-radius: 2rem;
+            border: 2px solid var(--main-color);
+            margin-bottom: 3rem;
+            box-shadow: 0 0 20px var(--main-color);
+        }
+        .content-area h2 {
+            color: var(--main-color);
+            margin: 3rem 0 1.5rem 0;
+            font-size: 2.8rem;
+            border-bottom: 2px solid var(--main-color);
+            padding-bottom: 0.5rem;
+        }
+        .content-area h2:first-child {
+            margin-top: 0;
+        }
+        .content-area h3 {
+            color: var(--main-color);
+            margin: 2rem 0 1rem 0;
+            font-size: 2.2rem;
+        }
+        .content-area p, .content-area ul, .content-area ol {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .content-area ul, .content-area ol {
+            padding-left: 3rem;
+        }
+        .content-area li {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        .content-area strong {
+            color: var(--main-color);
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .content-area img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 1.5rem;
+            border: 2px solid var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+            display: block;
+            margin: 3rem auto;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .content-area img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 35px var(--main-color);
+        }
+        
+        .image-caption {
+            font-size: 1.4rem;
+            color: var(--main-color);
+            margin-top: 1rem;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+        }
+        .content-table th {
+            background-color: var(--main-color);
+            color: var(--bg-color);
+            text-align: left;
+            padding: 1.2rem;
+            font-weight: bold;
+        }
+        .content-table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--main-color);
+        }
+        .content-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .content-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .advantage-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .advantage-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--main-color);
+        }
+        .advantage-title {
+            color: var(--main-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--main-color);
+            color: var(--bg-color);
+            padding: 1.2rem 2.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            border: 2px solid var(--main-color);
+        }
+        .back-button:hover {
+            background: transparent;
+            color: var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-section {
+                padding: 10rem 5% 4rem;
+            }
+            .lesson-title {
+                font-size: 3rem;
+            }
+            .content-area {
+                padding: 2.5rem;
+            }
+            .content-area h2 {
+                font-size: 2.2rem;
+            }
+            .content-area img {
+                margin: 2rem auto;
+            }
+            .advantage-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .lesson-title {
+                font-size: 2.5rem;
+            }
+            .content-area {
+                padding: 2rem;
+            }
+            .content-area h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">Şeyma <span>Yazılım</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="../index.html">Ana Sayfa</a>
+        </nav>
+    </header>
+
+    <section class="lesson-section">
+        <div class="lesson-container">
+            <div class="lesson-header">
+                <i class='bx bx-code-alt lesson-icon'></i>
+                <h1 class="lesson-title">.NET Generic Yapılar</h1>
+                <p class="lesson-subtitle">Tek kodla her türde çalışan tip güvenlikli yapı</p>
+            </div>
+
+            <div class="content-area">
+                <p><strong>Generic yapılar</strong>, .NET platformunda tip güvenliğini sağlarken kod tekrarını azaltan ve esnek yapılar oluşturmamızı sağlayan güçlü bir programlama tekniğidir.</p>
+
+                <h2>Generic Yapı Nedir?</h2>
+                <p>
+                    Generic, .NET'te tip parametreleri kullanarak veri tipinden bağımsız programlama yapılmasını sağlar.
+                </p>
+                
+                <div class="image-container">
+                    <img src="../img/generic-basic.png" alt="Generic Temel Yapısı">
+                    <p class="image-caption">Generic Yapının Temel Çalışma Prensibi</p>
+                </div>
+
+                <h2>Generic Sınıflar</h2>
+                <p>Generic sınıflar, tip parametresi alarak tanımlanır.</p>
+
+                <div class="image-container">
+                    <img src="../img/generic-class.png" alt="Generic Sınıf Örneği">
+                    <p class="image-caption">Generic Sınıf Yapısı ve Kullanımı</p>
+                </div>
+
+                <h2>Generic Interface'ler</h2>
+                <p>Interface'ler de generic olabilir.</p>
+
+                <div class="image-container">
+                    <img src="../img/generic-interface.png" alt="Generic Interface Örneği">
+                    <p class="image-caption">Generic Interface Yapısı</p>
+                </div>
+
+                <h2>Generic Repository Yapısı</h2>
+                <p>GenericRepository sınıfı, her entity için ayrı CRUD metodu yazma gereksinimini ortadan kaldırır.</p>
+
+                <div class="image-container">
+                    <img src="../img/generic-repository.png" alt="Generic Repository Yapısı">
+                    <p class="image-caption">Generic Repository Mimarisi</p>
+                </div>
+
+                <h2>Generic Kullanımı</h2>
+                <p>Entity sınıflarıyla generic repository kullanımı.</p>
+
+                <div class="image-container">
+                    <img src="../img/generic-usage.png" alt="Generic Kullanım Örneği">
+                    <p class="image-caption">Generic Yapının Pratik Kullanımı</p>
+                </div>
+
+                <h2>Generic Constraints</h2>
+                <p>Generic yapılarda tip parametreleri için kısıtlamalar belirlenebilir:</p>
+
+                <div class="table-container">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Kısıtlama</th>
+                                <th>Açıklama</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>where T : class</td>
+                                <td>Yalnızca referans tipler</td>
+                            </tr>
+                            <tr>
+                                <td>where T : struct</td>
+                                <td>Yalnızca değer tipler</td>
+                            </tr>
+                            <tr>
+                                <td>where T : new()</td>
+                                <td>Parametresiz yapıcı zorunlu</td>
+                            </tr>
+                            <tr>
+                                <td>where T : BaseClass</td>
+                                <td>Belirli sınıftan türetilmiş</td>
+                            </tr>
+                            <tr>
+                                <td>where T : IInterface</td>
+                                <td>Belirli interface uygulamalı</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Generic Avantajları</h2>
+                <div class="advantage-list">
+                    <div class="advantage-item">
+                        <div class="advantage-title">Kod Tekrarını Azaltır</div>
+                        <p>Aynı işlemler için farklı sınıflar yazmaya gerek kalmaz</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Tür Güvenliği Sağlar</div>
+                        <p>Hatalı tip dönüşümlerini engeller</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Performans Artışı</div>
+                        <p>Boxing/unboxing işlemleri ortadan kalkar</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Bakım Kolaylığı</div>
+                        <p>Tek noktadan değişiklik yapılabilir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Esneklik Sağlar</div>
+                        <p>Aynı yapı farklı veri tipleriyle kullanılabilir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">IntelliSense Desteği</div>
+                        <p>Daha iyi kod tamamlama sunar</p>
+                    </div>
+                </div>
+
+                <h2>Ne Zaman Kullanılır?</h2>
+                <ul>
+                    <li><strong>Repository Pattern</strong> - Tüm entity'ler için ortak CRUD işlemleri</li>
+                    <li><strong>Utility Sınıfları</strong> - Farklı tiplerle çalışan yardımcı metodlar</li>
+                    <li><strong>Collection İşlemleri</strong> - Tip güvenli koleksiyon yönetimi</li>
+                    <li><strong>Servis Katmanı</strong> - Benzer iş mantığına sahip servisler</li>
+                </ul>
+
+                <h2>Önemli Noktalar</h2>
+                <ul>
+                    <li>Generic yapılar runtime'da JIT tarafından spesifik tiplere dönüştürülür</li>
+                    <li>Performans avantajı için boxing/unboxing'i önler</li>
+                    <li>Tip güvenliği sayesinde runtime hataları azalır</li>
+                    <li>Kod tekrarını önleyerek bakımı kolaylaştırır</li>
+                </ul>
+
+                <h2>Sonuç</h2>
+                <p>
+                    Generic yapılar, .NET platformunda tekrar kullanılabilir, bakımı kolay ve tür güvenliği yüksek kod geliştirme imkânı sağlar.
+                </p>
+                <p>
+                    Generic Repository yapısı, modern .NET projelerinde yaygın olarak tercih edilmektedir ve doğru uygulandığında geliştirme sürecini önemli ölçüde hızlandırır.
+                </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="../index.html#terms" class="back-button">
+                    <i class='bx bx-arrow-back'></i>
+                    Terimlere Geri Dön
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>
