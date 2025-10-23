@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication & Authorization | Şeyma Yazılım</title>
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .lesson-section {
+            padding: 12rem 12% 6rem;
+            min-height: 100vh;
+        }
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .lesson-icon {
+            font-size: 6rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+        .lesson-title {
+            font-size: 4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-subtitle {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .content-area {
+            background: var(--second-bg-color);
+            padding: 4rem;
+            border-radius: 2rem;
+            border: 2px solid var(--main-color);
+            margin-bottom: 3rem;
+            box-shadow: 0 0 20px var(--main-color);
+        }
+        .content-area h2 {
+            color: var(--main-color);
+            margin: 3rem 0 1.5rem 0;
+            font-size: 2.8rem;
+            border-bottom: 2px solid var(--main-color);
+            padding-bottom: 0.5rem;
+        }
+        .content-area h2:first-child {
+            margin-top: 0;
+        }
+        .content-area h3 {
+            color: var(--main-color);
+            margin: 2rem 0 1rem 0;
+            font-size: 2.2rem;
+        }
+        .content-area p, .content-area ul, .content-area ol {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .content-area ul, .content-area ol {
+            padding-left: 3rem;
+        }
+        .content-area li {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        .content-area strong {
+            color: var(--main-color);
+        }
+        
+        .concept-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        .concept-section {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 1px solid var(--main-color);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+        }
+        .content-table th {
+            background-color: var(--main-color);
+            color: var(--bg-color);
+            text-align: left;
+            padding: 1.2rem;
+            font-weight: bold;
+        }
+        .content-table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--main-color);
+        }
+        .content-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .method-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--main-color);
+        }
+        .method-title {
+            color: var(--main-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-container {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            margin: 3rem 0;
+        }
+        
+        .example-scenario {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--main-color);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--main-color);
+            color: var(--bg-color);
+            padding: 1.2rem 2.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            border: 2px solid var(--main-color);
+        }
+        .back-button:hover {
+            background: transparent;
+            color: var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-section {
+                padding: 10rem 5% 4rem;
+            }
+            .lesson-title {
+                font-size: 3rem;
+            }
+            .content-area {
+                padding: 2.5rem;
+            }
+            .content-area h2 {
+                font-size: 2.2rem;
+            }
+            .concept-container {
+                grid-template-columns: 1fr;
+            }
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">Şeyma <span>Yazılım</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="../index.html">Ana Sayfa</a>
+        </nav>
+    </header>
+
+    <section class="lesson-section">
+        <div class="lesson-container">
+            <div class="lesson-header">
+                <i class='bx bx-lock-alt lesson-icon'></i>
+                <h1 class="lesson-title">Authentication & Authorization</h1>
+                <p class="lesson-subtitle">Uygulama güvenliğinin iki temel bileşeni</p>
+            </div>
+
+            <div class="content-area">
+                <p><strong>Authentication (Kimlik Doğrulama)</strong> ve <strong>Authorization (Yetkilendirme)</strong>, uygulama güvenliğinde birlikte çalışan iki temel kavramdır. Bu iki kavram, hem kullanıcıların kim olduğunu hem de hangi işlemleri yapmaya yetkili olduklarını belirler.</p>
+
+                <div class="concept-container">
+                    <div class="concept-section">
+                        <h2>🔑 Authentication</h2>
+                        <p><strong>Kimlik Doğrulama</strong>, bir kullanıcının gerçek kimliğini doğrulama sürecidir. Amaç, "Bu kişi gerçekten kim olduğunu iddia ettiği kişi mi?" sorusuna cevap bulmaktır.</p>
+                        
+                        <h3>Örnek Senaryo:</h3>
+                        <ul>
+                            <li>Kullanıcı giriş ekranına kullanıcı adı ve şifre yazar</li>
+                            <li>Sistem bu bilgileri kontrol eder</li>
+                            <li>Bilgiler doğruysa kullanıcı doğrulanır</li>
+                        </ul>
+
+                        <h3>Yaygın Yöntemler:</h3>
+                        <div class="method-grid">
+                            <div class="method-card">
+                                <div class="method-title">Parola (Password)</div>
+                                <p>En yaygın kullanılan kimlik doğrulama yöntemi</p>
+                            </div>
+                            <div class="method-card">
+                                <div class="method-title">Token (JWT, API Key)</div>
+                                <p>Web ve mobil uygulamalarda sık kullanılır</p>
+                            </div>
+                            <div class="method-card">
+                                <div class="method-title">Biometrik</div>
+                                <p>Parmak izi, yüz tanıma gibi fiziksel doğrulama</p>
+                            </div>
+                            <div class="method-card">
+                                <div class="method-title">2FA / MFA</div>
+                                <p>İki veya çok faktörlü doğrulama ile ek güvenlik</p>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Özetle:</strong> Authentication = "Kimsin?" sorusuna verilen cevaptır.</p>
+                    </div>
+
+                    <div class="concept-section">
+                        <h2>🔐 Authorization</h2>
+                        <p><strong>Yetkilendirme</strong>, kimliği doğrulanmış bir kullanıcının hangi kaynaklara erişebileceğini belirleyen süreçtir. Yani kim olduğunu biliyoruz, şimdi ne yapabileceğine karar veriyoruz.</p>
+                        
+                        <h3>Örnek Senaryo:</h3>
+                        <ul>
+                            <li>Kullanıcı giriş yaptı (Authentication tamam)</li>
+                            <li>Ancak sadece "Admin Paneli" sayfasına girmeye yetkili olan kişiler var</li>
+                            <li>Sistem, kullanıcının rolüne bakarak izin verir veya reddeder</li>
+                        </ul>
+
+                        <h3>Yaygın Yöntemler:</h3>
+                        <div class="method-grid">
+                            <div class="method-card">
+                                <div class="method-title">RBAC</div>
+                                <p>Role-Based Access Control - Kullanıcı rolleri üzerinden yetki</p>
+                            </div>
+                            <div class="method-card">
+                                <div class="method-title">ABAC</div>
+                                <p>Attribute-Based Access Control - Kullanıcı özellikleri değerlendirilir</p>
+                            </div>
+                            <div class="method-card">
+                                <div class="method-title">PBAC</div>
+                                <p>Policy-Based Access Control - Belirli politikalar uygulanır</p>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Özetle:</strong> Authorization = "Ne yapmaya yetkilisin?" sorusuna verilen cevaptır.</p>
+                    </div>
+                </div>
+
+                <h2>⚙️ Temel Farklar</h2>
+                <div class="table-container">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Özellik</th>
+                                <th>Authentication</th>
+                                <th>Authorization</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Amaç</strong></td>
+                                <td>Kullanıcının kimliğini doğrulamak</td>
+                                <td>Kullanıcının yetkilerini belirlemek</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Zamanlama</strong></td>
+                                <td>Önce gerçekleşir</td>
+                                <td>Authentication'dan sonra gerçekleşir</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Veri Kaynağı</strong></td>
+                                <td>Kimlik bilgileri (şifre, token)</td>
+                                <td>Rol veya izin bilgileri</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sonuç</strong></td>
+                                <td>Kullanıcı sisteme giriş yapar</td>
+                                <td>Kullanıcı belirli işlemleri yapabilir</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Örnek</strong></td>
+                                <td>Giriş yapma (login)</td>
+                                <td>Admin paneline erişim izni</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>🔒 Gerçek Hayat Örneği</h2>
+                <div class="example-scenario">
+                    <h3>Bina Güvenlik Sistemi Benzetmesi:</h3>
+                    <p><strong>Authentication:</strong> Kapıdaki güvenlik kartını okutur ve içeri girebilirsin. (Kimliğin doğrulandı)</p>
+                    <p><strong>Authorization:</strong> Ama sadece senin katına çıkabiliyorsun; yönetici katına çıkamazsın. (Yetkin sınırlandı)</p>
+                </div>
+
+                <h2>🌍 Modern Uygulamalarda Kullanım</h2>
+                <ul>
+                    <li><strong>Web uygulamalarında</strong> JWT (JSON Web Token) en yaygın yöntemdir</li>
+                    <li><strong>API'lerde</strong>, genellikle Bearer Token veya API Key tabanlı sistemler kullanılır</li>
+                    <li><strong>Bulut servislerinde</strong> (AWS, Azure, GCP) rol tabanlı yetkilendirme (RBAC) standarttır</li>
+                    <li><strong>Mikroservis mimarilerinde</strong> her servis kendi yetkilendirme mantığını uygulayabilir</li>
+                </ul>
+
+                <h2>💡 Kod Örneği - ASP.NET Core</h2>
+                <div style="background: #1e1e1e; padding: 2rem; border-radius: 1rem; margin: 2rem 0;">
+                    <code style="color: #d4d4d4; font-size: 1.4rem; line-height: 1.6;">
+[HttpPost]<br>
+public async Task<IActionResult> Login(LoginModel model)<br>
+{<br>
+&nbsp;&nbsp;// Authentication: Kullanıcı kimliğini doğrula<br>
+&nbsp;&nbsp;var user = await _userService.Authenticate(model.Username, model.Password);<br>
+&nbsp;&nbsp;if (user == null) return Unauthorized();<br>
+<br>
+&nbsp;&nbsp;// JWT Token oluştur<br>
+&nbsp;&nbsp;var token = _jwtService.GenerateToken(user);<br>
+&nbsp;&nbsp;return Ok(new { Token = token });<br>
+}<br>
+<br>
+[Authorize(Roles = "Admin")]  // Authorization: Sadece Admin rolü<br>
+[HttpGet("admin")]<br>
+public IActionResult AdminPanel()<br>
+{<br>
+&nbsp;&nbsp;return Ok("Admin paneline hoş geldiniz!");<br>
+}
+                    </code>
+                </div>
+
+                <h2>🎯 Sonuç</h2>
+                <p>
+                    <strong>Authentication ve Authorization</strong>, birlikte bir güvenlik zinciri oluşturur. Authentication kimliği doğrular, Authorization ise o kimliğe sınırlar koyar. Bu iki süreç birlikte kullanıldığında, sistem hem güvenli hem de kontrollü hale gelir.
+                </p>
+                <p>
+                    Modern uygulama geliştirmede bu iki kavramı doğru şekilde implemente etmek, güvenlik açıklarını önlemede kritik öneme sahiptir.
+                </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="../index.html#terms" class="back-button">
+                    <i class='bx bx-arrow-back'></i>
+                    Terimlere Geri Dön
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>

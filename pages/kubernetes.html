@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes | Şeyma Yazılım</title>
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .lesson-section {
+            padding: 12rem 12% 6rem;
+            min-height: 100vh;
+        }
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .lesson-icon {
+            font-size: 6rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+        .lesson-title {
+            font-size: 4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-subtitle {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .content-area {
+            background: var(--second-bg-color);
+            padding: 4rem;
+            border-radius: 2rem;
+            border: 2px solid var(--main-color);
+            margin-bottom: 3rem;
+            box-shadow: 0 0 20px var(--main-color);
+        }
+        .content-area h2 {
+            color: var(--main-color);
+            margin: 3rem 0 1.5rem 0;
+            font-size: 2.8rem;
+            border-bottom: 2px solid var(--main-color);
+            padding-bottom: 0.5rem;
+        }
+        .content-area h2:first-child {
+            margin-top: 0;
+        }
+        .content-area h3 {
+            color: var(--main-color);
+            margin: 2rem 0 1rem 0;
+            font-size: 2.2rem;
+        }
+        .content-area p, .content-area ul, .content-area ol {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .content-area ul, .content-area ol {
+            padding-left: 3rem;
+        }
+        .content-area li {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        .content-area strong {
+            color: var(--main-color);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--main-color);
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+        
+        .architecture-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        .architecture-section {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+        }
+        .content-table th {
+            background-color: var(--main-color);
+            color: var(--bg-color);
+            text-align: left;
+            padding: 1.2rem;
+            font-weight: bold;
+        }
+        .content-table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--main-color);
+        }
+        .content-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .advantage-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .advantage-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--main-color);
+        }
+        .advantage-title {
+            color: var(--main-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--main-color);
+            color: var(--bg-color);
+            padding: 1.2rem 2.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            border: 2px solid var(--main-color);
+        }
+        .back-button:hover {
+            background: transparent;
+            color: var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-section {
+                padding: 10rem 5% 4rem;
+            }
+            .lesson-title {
+                font-size: 3rem;
+            }
+            .content-area {
+                padding: 2.5rem;
+            }
+            .content-area h2 {
+                font-size: 2.2rem;
+            }
+            .architecture-container {
+                grid-template-columns: 1fr;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .advantage-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">Şeyma <span>Yazılım</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="../index.html">Ana Sayfa</a>
+        </nav>
+    </header>
+
+    <section class="lesson-section">
+        <div class="lesson-container">
+            <div class="lesson-header">
+                <i class='bx bxl-docker lesson-icon'></i>
+                <h1 class="lesson-title">Kubernetes</h1>
+                <p class="lesson-subtitle">Konteyner Orkestrasyon Sistemi</p>
+            </div>
+
+            <div class="content-area">
+                <p><strong>Kubernetes</strong>, konteyner haline getirilmiş uygulamaların dağıtımını, yönetimini ve ölçeklendirilmesini otomatikleştiren açık kaynaklı bir konteyner orkestrasyon sistemidir. Google tarafından geliştirilmiş ve günümüzde Cloud Native Computing Foundation (CNCF) tarafından yönetilmektedir.</p>
+
+                <h2>Kubernetes Nedir?</h2>
+                <p>
+                    Modern yazılım dünyasında uygulamalar genellikle mikroservis mimarisi ile geliştirilmektedir. Bu yaklaşım, her bileşenin ayrı bir konteynerde çalışmasını sağlar. Ancak konteyner sayısı arttıkça bunların yönetimi zorlaşır. Kubernetes bu noktada devreye girerek, yüzlerce hatta binlerce konteyneri merkezi bir şekilde ve akıllı bir biçimde yönetmeyi mümkün kılar.
+                </p>
+
+                <h2>Temel Özellikleri</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class='bx bx-rocket feature-icon'></i>
+                        <h3>Otomatik Dağıtım</h3>
+                        <p>Uygulamalar belirlenen kurallara göre otomatik olarak başlatılır veya durdurulur</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class='bx bx-expand feature-icon'></i>
+                        <h3>Otomatik Ölçeklendirme</h3>
+                        <p>Kullanıcı trafiğine göre pod sayısı otomatik artırılır veya azaltılır</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class='bx bx-plus-medical feature-icon'></i>
+                        <h3>Self-Healing</h3>
+                        <p>Herhangi bir pod çöktüğünde Kubernetes otomatik olarak yenisini oluşturur</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class='bx bx-transfer feature-icon'></i>
+                        <h3>Load Balancing</h3>
+                        <p>Gelen istekler pod'lar arasında dengeli bir şekilde dağıtılır</p>
+                    </div>
+                </div>
+
+                <h2>Kubernetes Mimarisi</h2>
+                <p>Kubernetes sistemi <strong>Cluster</strong> adı verilen bir yapıda çalışır. Bu yapı iki ana bileşenden oluşur:</p>
+
+                <div class="architecture-container">
+                    <div class="architecture-section">
+                        <h3>Control Plane (Yönetim Katmanı)</h3>
+                        <p>Kubernetes'in beyni olarak çalışır:</p>
+                        <ul>
+                            <li><strong>API Server:</strong> Kullanıcı veya sistem tarafından gelen tüm komutları alır</li>
+                            <li><strong>Scheduler:</strong> Yeni pod'ların hangi node üzerinde çalışacağını belirler</li>
+                            <li><strong>Controller Manager:</strong> Sistemi sürekli izleyerek istenen durum ile gerçek durumu eşitler</li>
+                            <li><strong>etcd:</strong> Tüm yapılandırma ve durum bilgilerini saklayan veritabanı</li>
+                        </ul>
+                    </div>
+                    <div class="architecture-section">
+                        <h3>Worker Nodes (Çalışan Düğümler)</h3>
+                        <p>Uygulamanın gerçek olarak çalıştığı sunucular:</p>
+                        <ul>
+                            <li><strong>Kubelet:</strong> Master tarafından verilen görevleri yerine getirir</li>
+                            <li><strong>Container Runtime:</strong> Konteynerleri çalıştırır (Docker vb.)</li>
+                            <li><strong>Kube Proxy:</strong> Ağ trafiğini yönlendirir ve servisler arası iletişimi sağlar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Kubernetes Nesneleri</h2>
+                <div class="table-container">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Nesne</th>
+                                <th>Açıklama</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Pod</strong></td>
+                                <td>Kubernetes'in en küçük çalışma birimi, bir veya birden fazla konteyner içerir</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Deployment</strong></td>
+                                <td>Uygulamanın nasıl ve kaç kopya olarak çalışacağını tanımlar</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Service</strong></td>
+                                <td>Pod'lara erişim ve yük dengeleme sağlar</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ingress</strong></td>
+                                <td>HTTP/HTTPS trafiğini uygun servislere yönlendirir</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ConfigMap</strong></td>
+                                <td>Uygulama konfigürasyonlarını saklar</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Secret</strong></td>
+                                <td>Şifre, token gibi hassas verileri güvenli şekilde saklar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Avantajları</h2>
+                <div class="advantage-list">
+                    <div class="advantage-item">
+                        <div class="advantage-title">Yüksek Erişilebilirlik</div>
+                        <p>Uygulamaların kesintisiz çalışmasını sağlar</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Sıfır Kesinti Güncelleme</div>
+                        <p>Rolling updates ile kesinti yaşanmaz</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Otomatik Ölçeklendirme</div>
+                        <p>Yük arttığında sistem otomatik olarak ölçeklenir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Cloud-Agnostic</div>
+                        <p>Farklı bulut sağlayıcılarda aynı şekilde çalışabilir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Mikroservis Desteği</div>
+                        <p>Mikroservis tabanlı uygulamaların yönetimini kolaylaştırır</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Kendini İyileştirme</div>
+                        <p>Hatalı pod'ları otomatik olarak yeniden başlatır</p>
+                    </div>
+                </div>
+
+                <h2>Örnek Kullanım Senaryosu</h2>
+                <p>Bir e-ticaret uygulamasını Kubernetes üzerinde çalıştıralım:</p>
+                <ul>
+                    <li><strong>Frontend:</strong> 3 pod replica ile çalışsın</li>
+                    <li><strong>Backend API:</strong> 5 pod replica ile çalışsın</li>
+                    <li><strong>Database:</strong> 2 pod replica ile çalışsın</li>
+                    <li><strong>Load Balancer:</strong> Gelen trafiği pod'lar arasında dağıtsın</li>
+                    <li><strong>Auto-scaling:</strong> CPU kullanımı %70'i geçerse otomatik ölçeklendirme yapsın</li>
+                </ul>
+
+                <h2>Sonuç</h2>
+                <p>
+                    Kubernetes, modern bulut-native uygulamaların dağıtımı ve yönetimi için endüstri standardı haline gelmiştir. Büyük ölçekli, yüksek erişilebilirliğe sahip ve otomatik olarak yönetilebilen uygulamalar geliştirmek isteyen her ekip için vazgeçilmez bir araçtır.
+                </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="../index.html#terms" class="back-button">
+                    <i class='bx bx-arrow-back'></i>
+                    Terimlere Geri Dön
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>

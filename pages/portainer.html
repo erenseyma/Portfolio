@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portainer | Şeyma Yazılım</title>
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .lesson-section {
+            padding: 12rem 12% 6rem;
+            min-height: 100vh;
+        }
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .lesson-icon {
+            font-size: 6rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+        .lesson-title {
+            font-size: 4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-subtitle {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .content-area {
+            background: var(--second-bg-color);
+            padding: 4rem;
+            border-radius: 2rem;
+            border: 2px solid var(--main-color);
+            margin-bottom: 3rem;
+            box-shadow: 0 0 20px var(--main-color);
+        }
+        .content-area h2 {
+            color: var(--main-color);
+            margin: 3rem 0 1.5rem 0;
+            font-size: 2.8rem;
+            border-bottom: 2px solid var(--main-color);
+            padding-bottom: 0.5rem;
+        }
+        .content-area h2:first-child {
+            margin-top: 0;
+        }
+        .content-area h3 {
+            color: var(--main-color);
+            margin: 2rem 0 1rem 0;
+            font-size: 2.2rem;
+        }
+        .content-area p, .content-area ul, .content-area ol {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .content-area ul, .content-area ol {
+            padding-left: 3rem;
+        }
+        .content-area li {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        .content-area strong {
+            color: var(--main-color);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--main-color);
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+        
+        .advantage-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .advantage-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--main-color);
+        }
+        .advantage-title {
+            color: var(--main-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        .comparison-section {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--main-color);
+            color: var(--bg-color);
+            padding: 1.2rem 2.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            border: 2px solid var(--main-color);
+        }
+        .back-button:hover {
+            background: transparent;
+            color: var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-section {
+                padding: 10rem 5% 4rem;
+            }
+            .lesson-title {
+                font-size: 3rem;
+            }
+            .content-area {
+                padding: 2.5rem;
+            }
+            .content-area h2 {
+                font-size: 2.2rem;
+            }
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .advantage-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">Şeyma <span>Yazılım</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="../index.html">Ana Sayfa</a>
+        </nav>
+    </header>
+
+    <section class="lesson-section">
+        <div class="lesson-container">
+            <div class="lesson-header">
+                <i class='bx bx-slider-alt lesson-icon'></i>
+                <h1 class="lesson-title">Portainer</h1>
+                <p class="lesson-subtitle">Docker ve Kubernetes için Görsel Yönetim Arayüzü</p>
+            </div>
+
+            <div class="content-area">
+                <p><strong>Portainer</strong>, Docker ve Kubernetes ortamlarını grafiksel bir arayüz üzerinden kolayca yönetmeyi sağlayan bir platformdur. Konteyner, ağ, hacim ve imaj işlemlerinin tamamı, terminal komutlarına ihtiyaç duyulmadan web arayüzü üzerinden yapılabilir.</p>
+
+                <h2>Portainer Nedir?</h2>
+                <p>
+                    Portainer, konteyner teknolojilerini kullanan geliştiriciler ve sistem yöneticileri için tasarlanmış açık kaynaklı bir yönetim aracıdır. Komut satırı arayüzüne alternatif olarak, tüm konteyner işlemlerini görsel bir panel üzerinden gerçekleştirme imkanı sunar.
+                </p>
+
+                <h2>Temel Özellikleri</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class='bx bx-desktop feature-icon'></i>
+                        <h3>Görsel Yönetim</h3>
+                        <p>Tüm konteyner ve pod'lar web paneli üzerinden görüntülenip yönetilebilir</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class='bx bx-rocket feature-icon'></i>
+                        <h3>Basit Dağıtım</h3>
+                        <p>Yeni bir konteyner veya servis, birkaç tıklama ile oluşturulabilir</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class='bx bx-user feature-icon'></i>
+                        <h3>Kullanıcı Yönetimi</h3>
+                        <p>Birden fazla kullanıcı için farklı yetkiler tanımlanabilir</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class='bx bx-chart feature-icon'></i>
+                        <h3>Kaynak İzleme</h3>
+                        <p>CPU, bellek ve ağ kullanımı gibi metrikler izlenebilir</p>
+                    </div>
+                </div>
+
+                <h2>Portainer vs Komut Satırı Karşılaştırması</h2>
+                <div class="comparison-container">
+                    <div class="comparison-section">
+                        <h3>🚀 Portainer ile</h3>
+                        <ul>
+                            <li>Görsel arayüzde tıklamalarla yönetim</li>
+                            <li>Gerçek zamanlı kaynak izleme</li>
+                            <li>Kullanıcı dostu dashboard</li>
+                            <li>Otomatik log görüntüleme</li>
+                            <li>Grafiksel container ağ yapısı</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-section">
+                        <h3>⌨️ Komut Satırı ile</h3>
+                        <ul>
+                            <li>Komutları ezberleme gereksinimi</li>
+                            <li>Manuel log takibi</li>
+                            <li>Karmaşık komut dizileri</li>
+                            <li>Görsel feedback yok</li>
+                            <li>Zaman alıcı işlemler</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Kurulum ve Kullanım</h2>
+                <p>Portainer'ı Docker üzerinde çalıştırmak çok basittir:</p>
+                
+                <div style="background: #1e1e1e; padding: 2rem; border-radius: 1rem; margin: 2rem 0;">
+                    <code style="color: #d4d4d4; font-size: 1.5rem;">
+# Portainer container'ını başlat<br>
+docker run -d -p 9000:9000 -p 8000:8000 \<br>
+--name portainer --restart always \<br>
+-v /var/run/docker.sock:/var/run/docker.sock \<br>
+-v portainer_data:/data portainer/portainer
+                    </code>
+                </div>
+
+                <p>Kurulum sonrası <code>http://localhost:9000</code> adresinden Portainer arayüzüne erişebilirsiniz.</p>
+
+                <h2>Avantajları</h2>
+                <div class="advantage-list">
+                    <div class="advantage-item">
+                        <div class="advantage-title">Kullanım Kolaylığı</div>
+                        <p>Komut satırına hâkim olmayan kullanıcılar için kolay kullanım sağlar</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Merkezi Yönetim</div>
+                        <p>Docker veya Kubernetes kümesinin genel durumunu tek ekrandan izleme imkânı sunar</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Uzaktan Erişim</div>
+                        <p>Sunucuya uzaktan bağlanmadan konteyner oluşturma, durdurma veya silme işlemleri yapılabilir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Hızlı Çözüm</div>
+                        <p>Küçük ve orta ölçekli projeler için hızlı bir yönetim çözümüdür</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Çoklu Platform Desteği</div>
+                        <p>Docker ve Kubernetes ile entegre çalışabilir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Güvenlik</div>
+                        <p>Role-based erişim kontrolü ile güvenli yönetim</p>
+                    </div>
+                </div>
+
+                <h2>Kubernetes ile Entegrasyon</h2>
+                <p>Portainer, Kubernetes cluster'larını da yönetebilir:</p>
+                <ul>
+                    <li>Pod'ları görsel olarak izleme ve yönetme</li>
+                    <li>Namespace'ler arasında geçiş yapabilme</li>
+                    <li>Deployment'ları kolayca oluşturma ve güncelleme</li>
+                    <li>Service ve Ingress kurallarını yönetme</li>
+                    <li>Resource kullanımını gerçek zamanlı izleme</li>
+                </ul>
+
+                <h2>Sonuç</h2>
+                <p>
+                    <strong>Kubernetes</strong>, konteyner tabanlı uygulamaların arka planda nasıl yönetileceğini belirleyen güçlü bir sistemdir. 
+                    <strong>Portainer</strong> ise, bu altyapının daha kolay ve kullanıcı dostu bir arayüzle yönetilmesini sağlayarak geliştiricilere büyük kolaylık sunar.
+                </p>
+                <p>
+                    Birlikte kullanıldıklarında, hem güçlü hem de pratik bir konteyner yönetim altyapısı oluştururlar. Portainer özellikle development ortamlarında ve küçük-orta ölçekli projelerde zaman kazandıran bir araçtır.
+                </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="../index.html#terms" class="back-button">
+                    <i class='bx bx-arrow-back'></i>
+                    Terimlere Geri Dön
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>

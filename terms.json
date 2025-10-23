@@ -12,27 +12,27 @@
     "link": "./pages/generic.html"
   },
   {
-    "icon": "bx bxl-docker",
-    "title": "Docker",
-    "description": "Kapsayıcı teknolojisi",
-    "link": "./pages/docker.html"
+    "icon": "bx bx-grid",
+    "title": "Kubernetes",
+    "description": "Kubernetes, konteynerleri otomatik olarak yöneten <br>ve ölçeklendiren bir orkestrasyon sistemidir.",
+    "link": "./pages/kubernetes.html"
   },
   {
-    "icon": "bx bxl-docker",
-    "title": "Docker",
-    "description": "Kapsayıcı teknolojisi",
-    "link": "./pages/docker.html"
+    "icon": "bx bx-slider-alt",
+    "title": "Portainer",
+    "description": "Portainer, konteynerleri komut satırı yerine <br>web arayüzünden yönetmeyi sağlayan görsel bir araçtır.",
+    "link": "./pages/portainer.html"
   },
   {
-    "icon": "bx bxl-docker",
-    "title": "Docker",
-    "description": "Kapsayıcı teknolojisi",
-    "link": "./pages/docker.html"
+    "icon": "bx bx-lock-alt",
+    "title": "Authentication - Authorization",
+    "description": "Kimlik doğrulama ve yetkilendirme güvenlik süreçleri",
+    "link": "./pages/autho.html"
   },
   {
-    "icon": "bx bxl-docker",
-    "title": "Docker",
-    "description": "Kapsayıcı teknolojisi",
-    "link": "./pages/docker.html"
+    "icon": "bx bx-key",
+    "title": "Jwt",
+    "description": "JWT, web uygulamalarında güvenli kimlik doğrulama<br> için kullanılan token tabanlı bir standarttır.",
+    "link": "./pages/jwt.html"
   }
 ]

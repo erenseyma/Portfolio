@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT - JSON Web Token | Şeyma Yazılım</title>
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .lesson-section {
+            padding: 12rem 12% 6rem;
+            min-height: 100vh;
+        }
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .lesson-icon {
+            font-size: 6rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+        .lesson-title {
+            font-size: 4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-subtitle {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .content-area {
+            background: var(--second-bg-color);
+            padding: 4rem;
+            border-radius: 2rem;
+            border: 2px solid var(--main-color);
+            margin-bottom: 3rem;
+            box-shadow: 0 0 20px var(--main-color);
+        }
+        .content-area h2 {
+            color: var(--main-color);
+            margin: 3rem 0 1.5rem 0;
+            font-size: 2.8rem;
+            border-bottom: 2px solid var(--main-color);
+            padding-bottom: 0.5rem;
+        }
+        .content-area h2:first-child {
+            margin-top: 0;
+        }
+        .content-area h3 {
+            color: var(--main-color);
+            margin: 2rem 0 1rem 0;
+            font-size: 2.2rem;
+        }
+        .content-area p, .content-area ul, .content-area ol {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .content-area ul, .content-area ol {
+            padding-left: 3rem;
+        }
+        .content-area li {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        .content-area strong {
+            color: var(--main-color);
+        }
+        
+        .token-structure {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .token-part {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--main-color);
+            text-align: center;
+        }
+        .token-icon {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            border: 1px solid var(--main-color);
+        }
+        .code-block code {
+            font-size: 1.4rem;
+            line-height: 1.6;
+        }
+        
+        .flow-container {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            margin: 3rem 0;
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 0.5rem;
+        }
+        .step-number {
+            background: var(--main-color);
+            color: var(--bg-color);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .advantage-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .advantage-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--main-color);
+        }
+        .advantage-title {
+            color: var(--main-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--main-color);
+            color: var(--bg-color);
+            padding: 1.2rem 2.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            border: 2px solid var(--main-color);
+        }
+        .back-button:hover {
+            background: transparent;
+            color: var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-section {
+                padding: 10rem 5% 4rem;
+            }
+            .lesson-title {
+                font-size: 3rem;
+            }
+            .content-area {
+                padding: 2.5rem;
+            }
+            .content-area h2 {
+                font-size: 2.2rem;
+            }
+            .token-structure {
+                grid-template-columns: 1fr;
+            }
+            .advantage-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">Şeyma <span>Yazılım</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="../index.html">Ana Sayfa</a>
+        </nav>
+    </header>
+
+    <section class="lesson-section">
+        <div class="lesson-container">
+            <div class="lesson-header">
+                <i class='bx bx-key lesson-icon'></i>
+                <h1 class="lesson-title">JWT - JSON Web Token</h1>
+                <p class="lesson-subtitle">Güvenli kimlik doğrulama için token tabanlı çözüm</p>
+            </div>
+
+            <div class="content-area">
+                <p><strong>JWT (JSON Web Token)</strong>, web uygulamalarında kullanıcı kimlik doğrulaması ve oturum yönetimi için kullanılan hafif, güvenli ve yaygın olarak benimsenmiş bir token standardıdır.</p>
+
+                <h2>JWT Nedir?</h2>
+                <p>
+                    JWT, kullanıcı giriş yaptıktan sonra sunucu tarafından oluşturulan ve istemciye verilen bir erişim jetonudur. Kullanıcı bu token'ı sonraki isteklerde kim olduğunu kanıtlamak için gönderir. Stateless (durumsuz) çalışma prensibi sayesinde sunucu tarafında oturum bilgisi tutulmasına gerek kalmaz.
+                </p>
+
+                <h2>JWT Yapısı</h2>
+                <p>JWT token'ı üç ana bölümden oluşur ve noktalarla ayrılır:</p>
+                
+                <div class="token-structure">
+                    <div class="token-part">
+                        <i class='bx bx-code-block token-icon'></i>
+                        <h3>Header</h3>
+                        <p>Token'ın türü ve kullanılan imzalama algoritmasını içerir</p>
+                        <div class="code-block">
+                            <code>
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+                            </code>
+                        </div>
+                    </div>
+                    <div class="token-part">
+                        <i class='bx bx-data token-icon'></i>
+                        <h3>Payload</h3>
+                        <p>Kullanıcıya ait bilgiler ve claim'leri içerir</p>
+                        <div class="code-block">
+                            <code>
+{
+  "id": 5,
+  "email": "seyma@example.com",
+  "role": "admin",
+  "exp": 1635724800
+}
+                            </code>
+                        </div>
+                    </div>
+                    <div class="token-part">
+                        <i class='bx bx-lock token-icon'></i>
+                        <h3>Signature</h3>
+                        <p>Header ve Payload'ın gizli anahtarla imzalanmış hali</p>
+                        <div class="code-block">
+                            <code>
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secret-key
+)
+                            </code>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Çalışma Mantığı</h2>
+                <div class="flow-container">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <strong>Kullanıcı Girişi:</strong> Kullanıcı kimlik bilgilerini gönderir
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <strong>Token Üretimi:</strong> Sunucu kimlik doğrulama başarılıysa JWT oluşturur
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <strong>Token Saklama:</strong> İstemci token'ı localStorage veya sessionStorage'da saklar
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <strong>İstek Gönderme:</strong> Sonraki isteklerde Authorization header'ı ile token gönderilir
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">5</div>
+                        <div>
+                            <strong>Token Doğrulama:</strong> Sunucu token'ı çözerek imzayı kontrol eder ve kullanıcıyı doğrular
+                        </div>
+                    </div>
+                </div>
+
+                <h2>HTTP İstek Örneği</h2>
+                <div class="code-block">
+                    <code>
+// İstek Header'ı
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJzZXltYUBleGFtcGxlLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYzNTcyNDgwMCwiZXhwIjoxNjM1NzI4NDAwfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+// ASP.NET Core Controller
+[Authorize]
+[HttpGet("profile")]
+public IActionResult GetProfile()
+{
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    var user = _userService.GetUserById(userId);
+    return Ok(user);
+}
+                    </code>
+                </div>
+
+                <h2>Avantajları</h2>
+                <div class="advantage-list">
+                    <div class="advantage-item">
+                        <div class="advantage-title">Stateless</div>
+                        <p>Sunucu tarafında oturum bilgisi tutulmaz, performans avantajı sağlar</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Güvenli</div>
+                        <p>İmza mekanizması sayesinde token değiştirilemez</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Esnek</div>
+                        <p>Farklı platformlar ve diller arasında kolayca kullanılabilir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Scalable</div>
+                        <p>Mikroservis mimarilerinde ideal çözüm sunar</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Standardize</div>
+                        <p>RFC 7519 standardı ile endüstri çapında kabul görmüştür</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Kendi Kendine Yeten</div>
+                        <p>Token içinde kullanıcı bilgileri taşır, veritabanı sorgusuna gerek kalmaz</p>
+                    </div>
+                </div>
+
+                <h2>Güvenlik Önlemleri</h2>
+                <ul>
+                    <li><strong>Gizli Anahtar:</strong> Güçlü ve güvenli bir secret key kullanın</li>
+                    <li><strong>Token Süresi:</strong> Kısa süreli access token'lar ve uzun süreli refresh token'lar kullanın</li>
+                    <li><strong>HTTPS:</strong> Token'ları her zaman HTTPS üzerinden iletin</li>
+                    <li><strong>Storage:</strong> Token'ları güvenli şekilde saklayın (httpOnly cookies önerilir)</li>
+                    <li><strong>Claim Doğrulama:</strong> Token içindeki tüm claim'leri doğrulayın</li>
+                </ul>
+
+                <h2>Gerçek Kullanım Senaryosu</h2>
+                <p><strong>React + ASP.NET Core Uygulaması:</strong></p>
+                <ul>
+                    <li>Kullanıcı React arayüzünden giriş yapar</li>
+                    <li>ASP.NET Core API, kimlik doğrulama başarılıysa JWT üretir</li>
+                    <li>React, token'ı localStorage'da saklar</li>
+                    <li>Her API isteğinde token Authorization header'ı ile gönderilir</li>
+                    <li>ASP.NET Core, gelen token'ı doğrular ve kullanıcıyı tanır</li>
+                </ul>
+
+                <h2>Sonuç</h2>
+                <p>
+                    JWT, modern web ve mobil uygulamalarda güvenli kimlik doğrulama sağlamak için etkili ve standart bir yöntemdir. Sunucu yükünü azaltır, mikroservis yapılarında kolayca uygulanabilir ve kullanıcı oturumlarını sade bir biçimde yönetir.
+                </p>
+                <p>
+                    Doğru güvenlik önlemleri alındığında, JWT hem geliştiriciler hem de kullanıcılar için güvenli ve performanslı bir kimlik doğrulama deneyimi sunar.
+                </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="../index.html#terms" class="back-button">
+                    <i class='bx bx-arrow-back'></i>
+                    Terimlere Geri Dön
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>
