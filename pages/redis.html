@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redis | Şeyma Yazılım</title>
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .lesson-section {
+            padding: 12rem 12% 6rem;
+            min-height: 100vh;
+        }
+        .lesson-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .lesson-icon {
+            font-size: 6rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+        .lesson-title {
+            font-size: 4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-subtitle {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .content-area {
+            background: var(--second-bg-color);
+            padding: 4rem;
+            border-radius: 2rem;
+            border: 2px solid var(--main-color);
+            margin-bottom: 3rem;
+            box-shadow: 0 0 20px var(--main-color);
+        }
+        .content-area h2 {
+            color: var(--main-color);
+            margin: 3rem 0 1.5rem 0;
+            font-size: 2.8rem;
+            border-bottom: 2px solid var(--main-color);
+            padding-bottom: 0.5rem;
+        }
+        .content-area h2:first-child {
+            margin-top: 0;
+        }
+        .content-area h3 {
+            color: var(--main-color);
+            margin: 2rem 0 1rem 0;
+            font-size: 2.2rem;
+        }
+        .content-area p, .content-area ul, .content-area ol {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        .content-area ul, .content-area ol {
+            padding-left: 3rem;
+        }
+        .content-area li {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        .content-area strong {
+            color: var(--main-color);
+        }
+        
+        .data-structures {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .structure-card {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--main-color);
+            text-align: center;
+        }
+        .structure-icon {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            border: 1px solid var(--main-color);
+        }
+        .code-block code {
+            font-size: 1.4rem;
+            line-height: 1.6;
+        }
+        
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .use-case {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--main-color);
+        }
+        .use-case-title {
+            color: var(--main-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .advantage-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .advantage-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--main-color);
+        }
+        .advantage-title {
+            color: var(--main-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-container {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            margin: 3rem 0;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--main-color);
+            color: var(--bg-color);
+            padding: 1.2rem 2.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            border: 2px solid var(--main-color);
+        }
+        .back-button:hover {
+            background: transparent;
+            color: var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-section {
+                padding: 10rem 5% 4rem;
+            }
+            .lesson-title {
+                font-size: 3rem;
+            }
+            .content-area {
+                padding: 2.5rem;
+            }
+            .content-area h2 {
+                font-size: 2.2rem;
+            }
+            .data-structures {
+                grid-template-columns: 1fr;
+            }
+            .use-cases {
+                grid-template-columns: 1fr;
+            }
+            .advantage-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">Şeyma <span>Yazılım</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="../index.html">Ana Sayfa</a>
+        </nav>
+    </header>
+
+    <section class="lesson-section">
+        <div class="lesson-container">
+            <div class="lesson-header">
+                <i class='bx bx-data lesson-icon'></i>
+                <h1 class="lesson-title">Redis</h1>
+                <p class="lesson-subtitle">Yüksek performanslı bellek tabanlı veri deposu</p>
+            </div>
+
+            <div class="content-area">
+                <p><strong>Redis (Remote Dictionary Server)</strong>, verileri bellek (RAM) üzerinde saklayan, açık kaynaklı ve yüksek performanslı bir veri yapısı deposudur. Genellikle cache (önbellekleme), oturum yönetimi, mesaj kuyruğu ve gerçek zamanlı veri işlemleri için kullanılır.</p>
+
+                <h2>Redis Nedir?</h2>
+                <p>
+                    Redis, NoSQL veritabanı kategorisinde yer alan ve verileri anahtar-değer (key-value) çiftleri şeklinde saklayan bir veri deposudur. Geleneksel veritabanlarından farklı olarak verileri disk yerine RAM'de tutarak mikro saniyeler seviyesinde okuma/yazma performansı sağlar.
+                </p>
+
+                <h2>Veri Yapıları</h2>
+                <p>Redis sadece metin değil, birçok farklı veri yapısını destekler:</p>
+                
+                <div class="data-structures">
+                    <div class="structure-card">
+                        <i class='bx bx-text structure-icon'></i>
+                        <h3>String</h3>
+                        <p>Basit anahtar-değer çiftleri</p>
+                        <div class="code-block">
+                            <code>SET username "seyma"<br>GET username</code>
+                        </div>
+                    </div>
+                    <div class="structure-card">
+                        <i class='bx bx-list-ul structure-icon'></i>
+                        <h3>List</h3>
+                        <p>Sıralı veri listeleri</p>
+                        <div class="code-block">
+                            <code>LPUSH users "ali"<br>RPUSH users "veli"<br>LRANGE users 0 -1</code>
+                        </div>
+                    </div>
+                    <div class="structure-card">
+                        <i class='bx bx-collection structure-icon'></i>
+                        <h3>Set</h3>
+                        <p>Benzersiz değerlerden oluşan koleksiyonlar</p>
+                        <div class="code-block">
+                            <code>SADD tags "redis"<br>SADD tags "database"<br>SMEMBERS tags</code>
+                        </div>
+                    </div>
+                    <div class="structure-card">
+                        <i class='bx bx-layer structure-icon'></i>
+                        <h3>Hash</h3>
+                        <p>Nesne benzeri veriler</p>
+                        <div class="code-block">
+                            <code>HSET user:1 name "Şeyma"<br>HSET user:1 age 25<br>HGETALL user:1</code>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Kullanım Alanları</h2>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <div class="use-case-title">🚀 Cache (Önbellek)</div>
+                        <p>Sık kullanılan verileri RAM'de tutarak uygulama performansını artırır. Veritabanı sorgularını azaltır.</p>
+                    </div>
+                    <div class="use-case">
+                        <div class="use-case-title">👤 Session Yönetimi</div>
+                        <p>Kullanıcı oturum bilgilerini hızlıca erişilebilir hale getirir. JWT token'ları saklamak için idealdir.</p>
+                    </div>
+                    <div class="use-case">
+                        <div class="use-case-title">📨 Message Queue</div>
+                        <p>Arka plan görevlerini veya mesaj kuyruğunu yönetir. Pub/Sub pattern ile çalışır.</p>
+                    </div>
+                    <div class="use-case">
+                        <div class="use-case-title">⚡ Gerçek Zamanlı Uygulamalar</div>
+                        <p>Sohbet uygulamaları, skor tabloları, canlı bildirim sistemleri gibi anlık veri gerektiren sistemler.</p>
+                    </div>
+                </div>
+
+                <h2>Performans Karşılaştırması</h2>
+                <div class="comparison-container">
+                    <h3>Redis vs Geleneksel Veritabanları</h3>
+                    <ul>
+                        <li><strong>Redis:</strong> Veriler RAM'de → Mikro saniye seviyesinde yanıt</li>
+                        <li><strong>SQL Veritabanları:</strong> Veriler diskte → Milisaniye seviyesinde yanıt</li>
+                        <li><strong>Okuma Hızı:</strong> Redis, disk tabanlı veritabanlarından 100-1000 kat daha hızlı</li>
+                        <li><strong>Yazma Hızı:</strong> Redis, saniyede yüzbinlerce işlem yapabilir</li>
+                    </ul>
+                </div>
+
+                <h2>ASP.NET Core ile Redis Kullanımı</h2>
+                <div class="code-block">
+                    <code>
+// Startup.cs'de Redis servisini ekleme
+services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379";
+    options.InstanceName = "SampleInstance";
+});
+
+// Controller'da kullanım
+public class UserController : Controller
+{
+    private readonly IDistributedCache _cache;
+    
+    public UserController(IDistributedCache cache)
+    {
+        _cache = cache;
+    }
+    
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetUser(int id)
+    {
+        var cacheKey = $"user_{id}";
+        var cachedUser = await _cache.GetStringAsync(cacheKey);
+        
+        if (!string.IsNullOrEmpty(cachedUser))
+        {
+            return Ok(JsonSerializer.Deserialize<User>(cachedUser));
+        }
+        
+        // Veritabanından getir
+        var user = await _userService.GetUserById(id);
+        
+        // Redis'e kaydet (5 dakika cache'le)
+        await _cache.SetStringAsync(cacheKey, 
+            JsonSerializer.Serialize(user), 
+            new DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+            });
+            
+        return Ok(user);
+    }
+}
+                    </code>
+                </div>
+
+                <h2>Avantajları</h2>
+                <div class="advantage-list">
+                    <div class="advantage-item">
+                        <div class="advantage-title">Yüksek Performans</div>
+                        <p>Veriler bellekte tutulduğu için çok hızlı erişim sağlar</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Esnek Veri Yapıları</div>
+                        <p>String, List, Set, Hash gibi farklı veri türlerini destekler</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Kolay Ölçeklenebilirlik</div>
+                        <p>Redis Cluster ile yatay ölçeklendirme yapılabilir</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Kalıcı Depolama</div>
+                        <p>İstenirse veriler diske yazılabilir (RDB, AOF)</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Atomic İşlemler</div>
+                        <p>Tüm komutlar atomik olarak çalışır, veri tutarlılığı sağlar</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-title">Yaygın Destek</div>
+                        <p>Tüm popüler programlama dilleri için client kütüphaneleri mevcut</p>
+                    </div>
+                </div>
+
+                <h2>Gerçek Hayat Senaryosu</h2>
+                <p><strong>E-ticaret Uygulaması:</strong></p>
+                <ul>
+                    <li><strong>Sepet İşlemleri:</strong> Kullanıcı sepetini Redis Hash'lerde saklama</li>
+                    <li><strong>Ürün Cache:</strong> Sık görüntülenen ürün bilgilerini cache'leme</li>
+                    <li><strong>Session:</strong> Kullanıcı oturumlarını Redis'te tutma</li>
+                    <li><strong>Öneri Sistemi:</strong> Benzer ürün önerilerini Redis Set'lerde saklama</li>
+                    <li><strong>Sıralama:</strong> En çok satan ürünleri Redis Sorted Set ile yönetme</li>
+                </ul>
+
+                <h2>Sonuç</h2>
+                <p>
+                    Redis, modern uygulamalarda performans artırmak ve anlık veri yönetimi sağlamak için güçlü bir çözümdür. Özellikle mikroservis yapılarında, JWT ile kimlik doğrulama, kullanıcı oturumu tutma veya cache mekanizması kurarken yaygın olarak tercih edilir.
+                </p>
+                <p>
+                    Doğru kullanıldığında, Redis uygulamalarınızın performansını önemli ölçüde artırabilir ve kullanıcı deneyimini iyileştirebilir.
+                </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="../index.html#terms" class="back-button">
+                    <i class='bx bx-arrow-back'></i>
+                    Terimlere Geri Dön
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>

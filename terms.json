@@ -34,5 +34,11 @@
     "title": "Jwt",
     "description": "JWT, web uygulamalarında güvenli kimlik doğrulama<br> için kullanılan token tabanlı bir standarttır.",
     "link": "./pages/jwt.html"
+  },
+  {
+    "icon": "bx bx-data",
+    "title": "Redis",
+    "description": "Yüksek performanslı bellek tabanlı veri deposu",
+    "link": "./pages/redis.html"
   }
 ]
